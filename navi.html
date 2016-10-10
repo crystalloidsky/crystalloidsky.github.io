@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script type="text/javascript">
+	if(navigator.geolocation){
+		navigator.geolocation.getCurrentPosition(function(ev){
+			alert('ok');
+		},function(ev){
+			alert('no');
+		});
+
+		navigator.geolocation.watchPosition(function(ev){
+			var msg = ev.coords;
+			for(var name in msg){
+				document.write(name+':'+msg[name]+'<br>');
+			}
+		});
+	}else{
+		alert('不支持');
+	}
+</script>
+<body>
+	
+</body>
+</html>
